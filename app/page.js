@@ -8,6 +8,7 @@ import CustomCursor from '@/components/CustomCursor'
 import NavBar from '@/components/NavBar'
 import ExperienceCard from '@/components/ExperienceCard'
 import SkillBadge from '@/components/SkillBadge'
+import LetterGlitch from '@/components/LetterGlitch'
 
 export default function Home() {
   const [showContent, setShowContent] = useState(false)
@@ -18,7 +19,7 @@ export default function Home() {
     email: 'contact.riyassiddikk@gmail.com',
     phone: '+91 8891 783006',
     linkedin: 'linkedin.com/in/riyassiddikk',
-    summary: 'Seasoned Technical Operations Manager with 12 years of hands-on experience in the telecom BSS/OSS sector. CKA/ITIL-certified professional excelling at managing multi-project operations and mentoring large technical teams (37+ members).',
+    summary: 'Seasoned Technical Operations Manager with 12 years of hands-on experience in the telecom BSS/OSS sector, specializing in high-availability application support, system reliability, and proactive monitoring. A hands-on leader and CKA/ITIL-certified professional who excels at managing multi-project operations and mentoring large technical teams (37+ members). Expertise in owning the end-to-end incident and problem management lifecycle, from personally driving expert-level technical troubleshooting and RCA to implementing long-term automation (Python) and monitoring solutions (ELK, Kubernetes).',
   }
 
   const experiences = [
@@ -27,10 +28,13 @@ export default function Home() {
       company: '6D Technologies',
       period: 'May 2022 - Present',
       responsibilities: [
-        'Lead 4 technical teams (37 engineers) handling 12 BSS/OSS projects',
-        'Own end-to-end 24x7 incident management (Vodafone Idea CMP, TOGOCEL)',
-        'SME for OCS, PCRF, AAA platforms',
-        'Architected ELK-based monitoring solutions and Kubernetes deployment strategies',
+        'Lead, mentor, and manage 4 technical teams (37 engineers) handling 12 BSS/OSS projects. Conduct regular performance reviews, provide expert technical coaching, and support career development to build a high-performing L1/L2 operations group',
+        'Own the end-to-end 24x7 incident management process for all 12 projects, including critical platforms for Vodafone Idea CMP and TOGOCEL BSS. Act as the final point of escalation, personally driving the resolution of the most complex production incidents and leading 24/7 on-call rotation efforts',
+        'Champion and oversee the problem management framework, personally leading and reviewing deep-dive RCAs for major and recurring incidents. Author and critically review post-mortem reports, ensuring technical rigor and the implementation of long-term preventative solutions',
+        'Serve as the primary technical Subject Matter Expert for core BSS/OSS platforms (OCS, PCRF, AAA). Provide critical technical feedback and strategic recommendations to product and engineering teams, directly influencing future design and architecture to improve system reliability',
+        'Lead the architecture and implementation of robust, ELK-based monitoring solutions to proactively detect and prevent system problems before they impact customers',
+        'Drive and personally contribute to automation initiatives for critical operational tasks, data repair, and diagnostic procedures. Lead Kubernetes deployment strategies to enhance service reliability and team efficiency, reducing manual intervention',
+        'Hold ultimate responsibility for service reliability and strict SLA adherence across all projects. Act as the primary technical point of contact for clients and internal stakeholders, managing expectations and communicating technical information effectively',
       ],
     },
     {
@@ -38,8 +42,8 @@ export default function Home() {
       company: '6D Technologies',
       period: 'Sep 2019 - May 2022',
       responsibilities: [
-        'Led onsite and offshore managed services for major international telecom projects',
-        'Ensured SLA adherence and provided hands-on technical guidance',
+        'Led both onsite and offshore managed services operations teams for major international telecom projects',
+        'Managed service delivery, ensuring adherence to SLAs, and provided hands-on technical guidance to the support team for complex issue resolution',
       ],
     },
     {
@@ -47,7 +51,7 @@ export default function Home() {
       company: 'Pelatro Solutions',
       period: 'Sep 2017 - Sep 2019',
       responsibilities: [
-        'Delivered BSS campaign management systems for Dialog Axiata, Ncell, and BTC',
+        'Successfully delivered and implemented complex BSS campaign management system projects for key international clients, including Dialog Axiata (Sri Lanka), Ncell (Nepal), and BTC (Bahamas)',
       ],
     },
     {
@@ -55,35 +59,67 @@ export default function Home() {
       company: '6D Technologies',
       period: 'July 2013 - Sep 2017',
       responsibilities: [
-        'Provided technical support and implementation services for BSS/OSS systems',
+        'Provided technical support and implementation services for BSS/OSS systems, ensuring successful deployment and ongoing maintenance of telecom infrastructure',
       ],
     },
   ]
 
-  const domainSkills = [
-    'Incident Management (ITIL v4)',
-    'RCA',
-    'BSS/OSS (OCS, PCRF, AAA)',
-    'Service Reliability',
+  const coreCompetencies = [
+    'Expert Incident & Problem Management (ITIL v4)',
+    'Root Cause Analysis (RCA)',
+    'BSS/OSS Domain Leadership (OCS, PCRF, AAA)',
+    'Technical Leadership & Mentorship',
+    'DevOps, Automation & Monitoring',
+    'Cross-Functional Collaboration',
+    'Service Reliability & Customer Satisfaction',
+    'Application Support & Managed Services',
   ]
 
   const techSkills = [
-    'Kubernetes (CKA)',
-    'Docker',
-    'ELK Stack',
-    'Python/Bash Scripting',
-    'MySQL',
+    'RHEL',
+    'MySQL DB',
     'Singlestore DB',
     'PostgreSQL',
-    'Wireshark',
-    'Jira/ServiceNow',
+    'Kubernetes & Docker',
+    'DevOps',
+    'Bash/Shell/Python Scripting',
+    'JVM/GC/Heap & Thread Dump Analysis',
+    'Diameter & SS7',
+    'TCP/IP',
+    'Wireshark/Toad/SQL Developer',
+    'IT Service Management',
+    'JIRA/Remedy/ServiceNow',
+    'ELK Stack',
+    'Nagios',
+    'Monit',
+    'MS Office',
   ]
 
   const certifications = [
-    { name: 'ITIL v4 Foundation', issuer: 'Axelos' },
-    { name: 'Certified Kubernetes Administrator (CKA)', issuer: 'Linux Foundation' },
-    { name: 'Foundations of Project Management', issuer: 'Google/Coursera' },
-    { name: 'GenAI in Project & Quality Management', issuer: 'Simplilearn' },
+    { 
+      name: 'ITIL v4 Foundation', 
+      issuer: 'Axelos',
+      expires: 'Apr 2028',
+      credential: 'GR671766899RS'
+    },
+    { 
+      name: 'Certified Kubernetes Administrator (CKA)', 
+      issuer: 'The Linux Foundation',
+      expires: 'Aug 2025',
+      credential: 'LF-v361805uw3'
+    },
+    { 
+      name: 'Foundations of Project Management', 
+      issuer: 'Coursera/Google',
+      date: 'Mar 2024',
+      credential: 'RV73VKYK4BSS'
+    },
+    { 
+      name: 'Masterclass: GenAI in Project & Quality Management', 
+      issuer: 'Simplilearn',
+      date: 'Apr 2025',
+      credential: '8186654'
+    },
   ]
 
   if (!showContent) {
@@ -96,8 +132,19 @@ export default function Home() {
       <NavBar />
 
       {/* Hero Section */}
-      <section id="about" className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+      <section id="about" className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        {/* LetterGlitch Background */}
+        <div className="absolute inset-0 -z-10 opacity-30">
+          <LetterGlitch
+            glitchColors={['#00ffff', '#0066ff', '#00cccc', '#0052cc']}
+            glitchSpeed={50}
+            centerVignette={true}
+            outerVignette={false}
+            smooth={true}
+          />
+        </div>
+        
+        <div className="max-w-7xl mx-auto relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
@@ -211,7 +258,7 @@ export default function Home() {
               {experiences.map((exp, index) => (
                 <div
                   key={index}
-                  className={`relative ${index % 2 === 0 ? 'md:pr-[calc(50%+2rem)] md:pl-0' : 'md:pl-[calc(50%+2rem)] md:pr-0'} pl-0`}
+                  className={`relative ${index % 2 === 0 ? 'md:pr-[calc(50%+2rem)] md:pl-0' : 'md:pl-[calc(50%+2rem)] md:pr-0'}`}
                 >
                   <ExperienceCard experience={exp} index={index} />
                 </div>
@@ -233,31 +280,31 @@ export default function Home() {
             Skills
           </motion.h2>
 
-          {/* Domain Skills */}
+          {/* Core Competencies */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="mb-12"
           >
-            <h3 className="text-2xl font-semibold text-neon-blue mb-6">Domain Expertise</h3>
+            <h3 className="text-2xl font-semibold text-neon-blue mb-6">Core Competencies</h3>
             <div className="flex flex-wrap gap-4">
-              {domainSkills.map((skill, index) => (
+              {coreCompetencies.map((skill, index) => (
                 <SkillBadge key={skill} skill={skill} index={index} />
               ))}
             </div>
           </motion.div>
 
-          {/* Tech Stack */}
+          {/* Areas of Expertise */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-semibold text-neon-blue mb-6">Tech Stack</h3>
+            <h3 className="text-2xl font-semibold text-neon-blue mb-6">Areas of Expertise</h3>
             <div className="flex flex-wrap gap-4">
               {techSkills.map((skill, index) => (
-                <SkillBadge key={skill} skill={skill} index={index + domainSkills.length} />
+                <SkillBadge key={skill} skill={skill} index={index + coreCompetencies.length} />
               ))}
             </div>
           </motion.div>
@@ -295,7 +342,15 @@ export default function Home() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-neon-cyan mb-2">{cert.name}</h3>
-                    <p className="text-gray-400">{cert.issuer}</p>
+                    <p className="text-gray-400 mb-1">{cert.issuer}</p>
+                    {(cert.expires || cert.date) && (
+                      <p className="text-gray-500 text-sm">
+                        {cert.expires ? `Expires: ${cert.expires}` : `Completed: ${cert.date}`}
+                      </p>
+                    )}
+                    {cert.credential && (
+                      <p className="text-gray-500 text-xs mt-1">ID: {cert.credential}</p>
+                    )}
                   </div>
                 </div>
               </motion.div>
@@ -329,7 +384,9 @@ export default function Home() {
                 <h3 className="text-2xl font-bold text-neon-cyan mb-2">
                   B.Tech in Electronics & Communication Engineering
                 </h3>
-                <p className="text-gray-400">Mar Baselios Christian College of Engineering</p>
+                <p className="text-gray-400 mb-1">Mar Baselios Christian College of Engineering</p>
+                <p className="text-gray-500 text-sm">MG University, Kottayam, Kerala</p>
+                <p className="text-gray-500 text-sm mt-1">2013 - 2019 | 70.4%</p>
               </div>
             </div>
           </motion.div>

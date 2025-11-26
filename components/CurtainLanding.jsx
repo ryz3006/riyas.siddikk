@@ -9,23 +9,30 @@ export default function CurtainLanding({ onEnter }) {
   const [showSubtext, setShowSubtext] = useState(false)
   const [showButton, setShowButton] = useState(false)
   const fullText = "Hi, I'm Riyas."
-  const subtext = "A Manager of Operations specializing in high-availability systems, incident management, and telecom BSS/OSS architectures. Bridging the gap between operations and engineering."
+  const subtext = "Driving resilient operations across high-availability and telecom systems."
 
   useEffect(() => {
     // Typewriter effect
     let currentIndex = 0
+    let subtextTimeout = null
+    let buttonTimeout = null
+    
     const typeInterval = setInterval(() => {
       if (currentIndex < fullText.length) {
         setText(fullText.slice(0, currentIndex + 1))
         currentIndex++
       } else {
         clearInterval(typeInterval)
-        setTimeout(() => setShowSubtext(true), 500)
-        setTimeout(() => setShowButton(true), 1500)
+        subtextTimeout = setTimeout(() => setShowSubtext(true), 500)
+        buttonTimeout = setTimeout(() => setShowButton(true), 1500)
       }
     }, 100)
 
-    return () => clearInterval(typeInterval)
+    return () => {
+      clearInterval(typeInterval)
+      if (subtextTimeout) clearTimeout(subtextTimeout)
+      if (buttonTimeout) clearTimeout(buttonTimeout)
+    }
   }, [])
 
   return (
