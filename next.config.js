@@ -75,11 +75,6 @@ const nextConfig = {
 
   // PoweredBy header removal for security
   poweredByHeader: false,
-
-  // Experimental features for better performance
-  experimental: {
-    optimizeCss: true,
-  },
 }
 
 module.exports = nextConfig
