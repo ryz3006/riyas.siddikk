@@ -35,6 +35,12 @@
   transform: translate3d(0, 0, 0.1px);
   position: relative;
   touch-action: none;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .pc-behind {
@@ -60,6 +66,8 @@
 .pc-card {
   height: 80svh;
   max-height: 640px;
+  width: 100%;
+  max-width: 100%;
   display: grid;
   aspect-ratio: 0.718;
   border-radius: var(--card-radius);
@@ -73,6 +81,7 @@
   background: rgba(0, 0, 0, 0.9);
   backface-visibility: hidden;
   overflow: hidden;
+  margin: 0 auto;
 }
 
 .pc-card:hover,
@@ -429,9 +438,16 @@
 }
 
 @media (max-width: 768px) {
+  .pc-card-wrapper {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 1rem;
+  }
   .pc-card {
     height: 70svh;
     max-height: 550px;
+    width: 100%;
+    max-width: 100%;
   }
   .pc-details {
     top: 1.2em;
@@ -466,9 +482,16 @@
 }
 
 @media (max-width: 480px) {
+  .pc-card-wrapper {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 0.75rem;
+  }
   .pc-card {
     height: 60svh;
     max-height: 450px;
+    width: 100%;
+    max-width: 100%;
   }
   .pc-details {
     top: 1em;
@@ -505,9 +528,16 @@
 }
 
 @media (max-width: 320px) {
+  .pc-card-wrapper {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 0.5rem;
+  }
   .pc-card {
     height: 55svh;
     max-height: 420px;
+    width: 100%;
+    max-width: 100%;
   }
   .pc-details h3 {
     font-size: min(3svh, 1.5em);

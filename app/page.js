@@ -253,7 +253,7 @@ export default function Home() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="w-full max-w-md"
+              className="w-full max-w-md mx-auto md:mx-0 flex justify-center items-center"
             >
               <ProfileCard
                 name={profile.name}
@@ -295,30 +295,30 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
-                className="flex flex-wrap items-center justify-center md:justify-start gap-6 mb-8"
+                className="flex flex-wrap items-center justify-center md:justify-start gap-4 sm:gap-6 mb-8"
               >
                 <a
                   href={`tel:${profile.phone}`}
-                  className="flex items-center gap-2 text-gray-300 hover:text-neon-cyan transition-colors"
+                  className="flex items-center gap-2 text-gray-300 hover:text-neon-cyan transition-colors text-sm sm:text-base break-all"
                 >
-                  <Phone size={20} />
-                  <span>{profile.phone}</span>
+                  <Phone size={18} className="sm:w-5 sm:h-5 flex-shrink-0" />
+                  <span className="break-words">{profile.phone}</span>
                 </a>
                 <a
                   href={`mailto:${profile.email}`}
-                  className="flex items-center gap-2 text-gray-300 hover:text-neon-cyan transition-colors"
+                  className="flex items-center gap-2 text-gray-300 hover:text-neon-cyan transition-colors text-sm sm:text-base break-all"
                 >
-                  <Mail size={20} />
-                  <span>{profile.email}</span>
+                  <Mail size={18} className="sm:w-5 sm:h-5 flex-shrink-0" />
+                  <span className="break-words">{profile.email}</span>
                 </a>
                 <a
                   href={`https://${profile.linkedin}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-gray-300 hover:text-neon-cyan transition-colors"
+                  className="flex items-center gap-2 text-gray-300 hover:text-neon-cyan transition-colors text-sm sm:text-base break-all"
                 >
-                  <Linkedin size={20} />
-                  <span>{profile.linkedin}</span>
+                  <Linkedin size={18} className="sm:w-5 sm:h-5 flex-shrink-0" />
+                  <span className="break-words">{profile.linkedin}</span>
                 </a>
               </motion.div>
             </div>
@@ -339,7 +339,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-bold text-center mb-12 text-gradient"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-12 text-gradient px-4"
           >
             Experience
           </motion.h2>
@@ -367,11 +367,11 @@ export default function Home() {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-bold text-center mb-12 text-gradient"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-12 text-gradient px-4"
           >
             Certifications
           </motion.h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             {certifications.map((cert, index) => (
               <motion.div
                 key={cert.name}
@@ -383,22 +383,22 @@ export default function Home() {
                   scale: 1.05,
                   y: -5,
                 }}
-                className="bg-gray-900/50 border border-neon-cyan/20 rounded-lg p-6 hover:border-neon-cyan/50 hover:glow transition-all duration-300"
+                className="bg-gray-900/50 border border-neon-cyan/20 rounded-lg p-4 sm:p-6 hover:border-neon-cyan/50 hover:glow transition-all duration-300"
               >
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-neon-cyan/10 rounded-lg">
-                    <Award className="text-neon-cyan" size={32} />
+                <div className="flex items-start gap-3 sm:gap-4">
+                  <div className="p-2 sm:p-3 bg-neon-cyan/10 rounded-lg flex-shrink-0">
+                    <Award className="text-neon-cyan sm:w-8 sm:h-8" size={24} />
                   </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-neon-cyan mb-2">{cert.name}</h3>
-                    <p className="text-gray-400 mb-1">{cert.issuer}</p>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-lg sm:text-xl font-bold text-neon-cyan mb-2 break-words">{cert.name}</h3>
+                    <p className="text-gray-400 mb-1 text-sm sm:text-base break-words">{cert.issuer}</p>
                     {(cert.expires || cert.date) && (
-                      <p className="text-gray-500 text-sm">
+                      <p className="text-gray-500 text-xs sm:text-sm break-words">
                         {cert.expires ? `Expires: ${cert.expires}` : `Completed: ${cert.date}`}
                       </p>
                     )}
                     {cert.credential && (
-                      <p className="text-gray-500 text-xs mt-1">ID: {cert.credential}</p>
+                      <p className="text-gray-500 text-xs mt-1 break-all">ID: {cert.credential}</p>
                     )}
                   </div>
                 </div>
@@ -415,7 +415,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-bold text-center mb-12 text-gradient"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-12 text-gradient px-4"
           >
             Education
           </motion.h2>
@@ -423,19 +423,19 @@ export default function Home() {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-gray-900/50 border border-neon-cyan/20 rounded-lg p-8 max-w-2xl mx-auto hover:border-neon-cyan/50 hover:glow transition-all duration-300"
+            className="bg-gray-900/50 border border-neon-cyan/20 rounded-lg p-6 sm:p-8 max-w-2xl mx-auto hover:border-neon-cyan/50 hover:glow transition-all duration-300"
           >
-            <div className="flex items-center gap-4">
-              <div className="p-3 bg-neon-cyan/10 rounded-lg">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+              <div className="p-3 bg-neon-cyan/10 rounded-lg flex-shrink-0">
                 <GraduationCap className="text-neon-cyan" size={32} />
               </div>
-              <div>
-                <h3 className="text-2xl font-bold text-neon-cyan mb-2">
+              <div className="flex-1 min-w-0">
+                <h3 className="text-xl sm:text-2xl font-bold text-neon-cyan mb-2 break-words">
                   B.Tech in Electronics & Communication Engineering
                 </h3>
-                <p className="text-gray-400 mb-1">Mar Baselios Christian College of Engineering</p>
-                <p className="text-gray-500 text-sm">MG University, Kottayam, Kerala</p>
-                <p className="text-gray-500 text-sm mt-1">2013 - 2019 | 70.4%</p>
+                <p className="text-gray-400 mb-1 text-sm sm:text-base break-words">Mar Baselios Christian College of Engineering</p>
+                <p className="text-gray-500 text-xs sm:text-sm break-words">MG University, Kottayam, Kerala</p>
+                <p className="text-gray-500 text-xs sm:text-sm mt-1">2013 - 2019 | 70.4%</p>
               </div>
             </div>
           </motion.div>
@@ -449,7 +449,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-bold mb-8 text-gradient"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 text-gradient px-4"
           >
             Get In Touch
           </motion.h2>
@@ -458,7 +458,7 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-gray-300 text-lg mb-8"
+            className="text-gray-300 text-base sm:text-lg mb-6 sm:mb-8 px-4"
           >
             Let's connect and discuss opportunities in operations, incident management, and telecom BSS/OSS.
           </motion.p>
@@ -467,29 +467,29 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="flex flex-wrap items-center justify-center gap-6"
+            className="flex flex-wrap items-center justify-center gap-4 sm:gap-6"
           >
             <a
               href={`tel:${profile.phone}`}
-              className="flex items-center gap-2 px-6 py-3 bg-gray-900/50 border border-neon-cyan/30 rounded-lg hover:border-neon-cyan hover:glow transition-all"
+              className="flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 bg-gray-900/50 border border-neon-cyan/30 rounded-lg hover:border-neon-cyan hover:glow transition-all text-sm sm:text-base"
             >
-              <Phone size={20} />
-              <span>{profile.phone}</span>
+              <Phone size={18} className="sm:w-5 sm:h-5 flex-shrink-0" />
+              <span className="whitespace-nowrap">{profile.phone}</span>
             </a>
             <a
               href={`mailto:${profile.email}`}
-              className="flex items-center gap-2 px-6 py-3 bg-gray-900/50 border border-neon-cyan/30 rounded-lg hover:border-neon-cyan hover:glow transition-all"
+              className="flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 bg-gray-900/50 border border-neon-cyan/30 rounded-lg hover:border-neon-cyan hover:glow transition-all text-sm sm:text-base"
             >
-              <Mail size={20} />
+              <Mail size={18} className="sm:w-5 sm:h-5 flex-shrink-0" />
               <span>Email Me</span>
             </a>
             <a
               href={`https://${profile.linkedin}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-6 py-3 bg-gray-900/50 border border-neon-cyan/30 rounded-lg hover:border-neon-cyan hover:glow transition-all"
+              className="flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 bg-gray-900/50 border border-neon-cyan/30 rounded-lg hover:border-neon-cyan hover:glow transition-all text-sm sm:text-base"
             >
-              <Linkedin size={20} />
+              <Linkedin size={18} className="sm:w-5 sm:h-5 flex-shrink-0" />
               <span>LinkedIn</span>
             </a>
           </motion.div>
@@ -505,7 +505,7 @@ export default function Home() {
               href="https://drive.google.com/file/d/13cxnSP7qmJkbnby3SFXEZXb0ai7Qdio8/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-8 py-4 text-lg font-semibold border border-neon-cyan text-neon-cyan rounded-full hover:bg-neon-cyan/10 hover:glow transition-all"
+              className="inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold border border-neon-cyan text-neon-cyan rounded-full hover:bg-neon-cyan/10 hover:glow transition-all"
             >
               Get my latest Resume
             </a>
