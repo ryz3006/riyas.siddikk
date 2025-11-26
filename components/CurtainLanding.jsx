@@ -110,7 +110,7 @@ export default function CurtainLanding({ onEnter }) {
                 onClick={onEnter}
                 className="px-8 py-4 bg-transparent border-2 border-neon-cyan text-neon-cyan font-semibold text-lg rounded-lg hover:bg-neon-cyan/10 transition-colors relative overflow-hidden"
               >
-                <span className="relative z-10">Enter Profile</span>
+                <span className="relative z-10">Meet Me!</span>
                 <motion.div
                   className="absolute inset-0 bg-neon-cyan/20"
                   initial={{ x: '-100%' }}
