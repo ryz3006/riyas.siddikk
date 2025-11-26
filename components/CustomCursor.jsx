@@ -4,8 +4,9 @@ import { useEffect, useState } from 'react'
 import { motion, useMotionValue, useSpring } from 'framer-motion'
 
 // Spring configurations as constants to prevent re-initialization on every render
-const CURSOR_SPRING_CONFIG = { damping: 25, stiffness: 200 }
-const SPOTLIGHT_SPRING_CONFIG = { damping: 20, stiffness: 150 }
+// Higher stiffness and damping for more responsive, normal-speed cursor movement
+const CURSOR_SPRING_CONFIG = { damping: 30, stiffness: 500 }
+const SPOTLIGHT_SPRING_CONFIG = { damping: 25, stiffness: 400 }
 
 export default function CustomCursor() {
   const [isHovering, setIsHovering] = useState(false)

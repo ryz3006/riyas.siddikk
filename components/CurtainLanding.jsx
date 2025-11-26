@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import AnimatedBackground from './AnimatedBackground'
+import LetterGlitch from './LetterGlitch'
 
 export default function CurtainLanding({ onEnter }) {
   const [text, setText] = useState('')
@@ -44,7 +44,16 @@ export default function CurtainLanding({ onEnter }) {
         className="fixed inset-0 z-50 bg-black flex items-center justify-center overflow-hidden"
         style={{ cursor: 'default' }}
       >
-        <AnimatedBackground />
+        {/* LetterGlitch Background */}
+        <div className="absolute inset-0 z-0 opacity-40">
+          <LetterGlitch
+            glitchColors={['#00ffff', '#0066ff', '#00cccc', '#0052cc']}
+            glitchSpeed={50}
+            centerVignette={true}
+            outerVignette={false}
+            smooth={true}
+          />
+        </div>
         
         <div className="relative z-10 text-center px-4 max-w-4xl">
           {/* Main Text with Typewriter Effect */}

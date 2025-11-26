@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 
@@ -18,8 +19,8 @@ export default function NavBar() {
 
   const navItems = [
     { name: 'About', href: '#about' },
-    { name: 'Experience', href: '#experience' },
     { name: 'Skills', href: '#skills' },
+    { name: 'Experience', href: '#experience' },
     { name: 'Certifications', href: '#certifications' },
     { name: 'Contact', href: '#contact' },
   ]
@@ -43,13 +44,21 @@ export default function NavBar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <motion.div
+          <motion.button
             whileHover={{ scale: 1.05 }}
-            className="text-xl font-bold text-gradient cursor-pointer"
+            className="flex items-center gap-2 cursor-pointer focus:outline-none"
             onClick={() => handleClick('#about')}
+            aria-label="Back to top"
           >
-            RS
-          </motion.div>
+            <Image
+              src="/ProfileLogo.png"
+              alt="Riyas Siddikk logo"
+              width={44}
+              height={44}
+              priority
+              className="object-contain"
+            />
+          </motion.button>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8">

@@ -1,14 +1,39 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { motion } from 'framer-motion'
 import { Linkedin, Mail, Phone, Award, GraduationCap } from 'lucide-react'
 import CurtainLanding from '@/components/CurtainLanding'
 import CustomCursor from '@/components/CustomCursor'
 import NavBar from '@/components/NavBar'
 import ExperienceCard from '@/components/ExperienceCard'
-import SkillBadge from '@/components/SkillBadge'
-import LetterGlitch from '@/components/LetterGlitch'
+import ProfileCard from '@/components/ProfileCard'
+import ShinyText from '@/components/ShinyText'
+import Squares from '@/components/Squares'
+import SkillsShowcase from '@/components/skills/SkillsShowcase'
+import {
+  SiRedhat,
+  SiMysql,
+  SiPostgresql,
+  SiKubernetes,
+  SiDocker,
+  SiApachekafka,
+  SiGithub,
+  SiElastic,
+  SiGrafana,
+  SiPython,
+  SiNginx,
+  SiJira,
+} from 'react-icons/si'
+import {
+  FaDatabase,
+  FaServer,
+  FaChartLine,
+  FaBug,
+  FaToolbox,
+  FaCogs,
+  FaMicrosoft,
+} from 'react-icons/fa'
 
 export default function Home() {
   const [showContent, setShowContent] = useState(false)
@@ -19,7 +44,7 @@ export default function Home() {
     email: 'contact.riyassiddikk@gmail.com',
     phone: '+91 8891 783006',
     linkedin: 'linkedin.com/in/riyassiddikk',
-    summary: 'Seasoned Technical Operations Manager with 12 years of hands-on experience in the telecom BSS/OSS sector, specializing in high-availability application support, system reliability, and proactive monitoring. A hands-on leader and CKA/ITIL-certified professional who excels at managing multi-project operations and mentoring large technical teams (37+ members). Expertise in owning the end-to-end incident and problem management lifecycle, from personally driving expert-level technical troubleshooting and RCA to implementing long-term automation (Python) and monitoring solutions (ELK, Kubernetes).',
+    summary: 'Technical Operations Manager with 12+ years in telecom BSS/OSS, specializing in high-availability platforms, system reliability, and real-time monitoring. CKA/ITIL-certified leader managing teams of 37+ and owning the full incident & problem management lifecycle. I design automation solutions (Shell & Python scripting) and build observability stacks using ELK, Prometheus, and Grafana, while partnering with engineering teams to enhance system architecture and service resilience.',
   }
 
   const experiences = [
@@ -95,6 +120,41 @@ export default function Home() {
     'MS Office',
   ]
 
+  // Technology logos configuration
+  const techLogosConfig = useMemo(
+    () => [
+      { Icon: SiRedhat, title: 'Red Hat Linux', href: 'https://www.redhat.com' },
+      { Icon: SiMysql, title: 'MySQL', href: 'https://www.mysql.com' },
+      { Icon: FaServer, title: 'SingleStore DB', href: 'https://www.singlestore.com' },
+      { Icon: SiPostgresql, title: 'PostgreSQL', href: 'https://www.postgresql.org' },
+      { Icon: SiKubernetes, title: 'Kubernetes', href: 'https://kubernetes.io' },
+      { Icon: SiDocker, title: 'Docker', href: 'https://www.docker.com' },
+      { Icon: SiApachekafka, title: 'Kafka', href: 'https://kafka.apache.org' },
+      { Icon: SiGithub, title: 'GitHub', href: 'https://github.com' },
+      { Icon: SiElastic, title: 'ELK Stack', href: 'https://www.elastic.co' },
+      { Icon: SiGrafana, title: 'Grafana', href: 'https://grafana.com' },
+      { Icon: FaChartLine, title: 'Nagios', href: 'https://www.nagios.org' },
+      { Icon: FaBug, title: 'Eclipse MAT', href: 'https://www.eclipse.org/mat' },
+      { Icon: SiPython, title: 'Python', href: 'https://www.python.org' },
+      { Icon: SiNginx, title: 'Nginx', href: 'https://www.nginx.com' },
+      { Icon: SiJira, title: 'JIRA', href: 'https://www.atlassian.com/software/jira' },
+      { Icon: FaToolbox, title: 'Remedy', href: 'https://www.bmc.com/it-solutions/remedy' },
+      { Icon: FaCogs, title: 'ServiceNow', href: 'https://www.servicenow.com' },
+      { Icon: FaMicrosoft, title: 'MS Office', href: 'https://www.microsoft.com/microsoft-365' },
+    ],
+    []
+  )
+
+  // Create techLogos with JSX elements
+  const techLogos = useMemo(
+    () =>
+      techLogosConfig.map(({ Icon, ...rest }) => ({
+        node: <Icon />,
+        ...rest,
+      })),
+    [techLogosConfig]
+  )
+
   const certifications = [
     { 
       name: 'ITIL v4 Foundation', 
@@ -128,81 +188,69 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-black text-white relative overflow-x-hidden" style={{ cursor: 'none' }}>
-      <CustomCursor />
-      <NavBar />
+      <div className="fixed inset-0 z-0 pointer-events-none">
+        <Squares
+          speed={0.4}
+          squareSize={40}
+          direction="diagonal"
+          borderColor="#1f2937"
+          hoverFillColor="#111827"
+        />
+      </div>
+      <div className="relative z-10">
+        <CustomCursor />
+        <NavBar />
 
       {/* Hero Section */}
-      <section id="about" className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-        {/* LetterGlitch Background */}
-        <div className="absolute inset-0 -z-10 opacity-30">
-          <LetterGlitch
-            glitchColors={['#00ffff', '#0066ff', '#00cccc', '#0052cc']}
-            glitchSpeed={50}
-            centerVignette={true}
-            outerVignette={false}
-            smooth={true}
-          />
-        </div>
-        
-        <div className="max-w-7xl mx-auto relative z-10">
+      <section id="about" className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="flex flex-col md:flex-row items-center justify-center gap-12"
           >
-            {/* Profile Image */}
+            {/* Profile Card */}
             <motion.div
-              whileHover={{ scale: 1.05, rotate: [0, -5, 5, -5, 0] }}
-              transition={{ duration: 0.5 }}
-              className="relative"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="w-full max-w-md"
             >
-              <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-neon-cyan glow">
-                <img
-                  src="https://placehold.co/400x400/00ffff/000000?text=RS"
-                  alt="Riyas Siddikk"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <motion.div
-                className="absolute inset-0 rounded-full border-4 border-neon-cyan"
-                animate={{
-                  boxShadow: [
-                    '0 0 20px rgba(0, 255, 255, 0.5)',
-                    '0 0 40px rgba(0, 255, 255, 0.8)',
-                    '0 0 20px rgba(0, 255, 255, 0.5)',
-                  ],
+              <ProfileCard
+                name={profile.name}
+                title={profile.title}
+                handle="riyassiddikk"
+                status="Available"
+                contactText="Contact Me"
+                avatarUrl="/Riyas_ProfilePicture.png"
+                showUserInfo={false}
+                enableTilt={true}
+                enableMobileTilt={false}
+                onContactClick={() => {
+                  const contactSection = document.querySelector('#contact')
+                  if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: 'smooth' })
+                  }
                 }}
-                transition={{ duration: 2, repeat: Infinity }}
               />
             </motion.div>
 
             {/* Profile Info */}
             <div className="text-center md:text-left flex-1">
-              <motion.h1
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.2 }}
-                className="text-5xl md:text-6xl font-bold mb-4 text-gradient"
-              >
-                {profile.name}
-              </motion.h1>
-              <motion.h2
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.3 }}
-                className="text-2xl md:text-3xl text-neon-blue mb-6"
-              >
-                {profile.title}
-              </motion.h2>
-              <motion.p
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                className="text-gray-300 text-lg mb-8 max-w-2xl"
+                className="text-lg mb-8 max-w-2xl"
               >
-                {profile.summary}
-              </motion.p>
+                <ShinyText
+                  text={profile.summary}
+                  disabled={false}
+                  speed={6}
+                  className="text-gray-300"
+                />
+              </motion.div>
 
               {/* Contact Info */}
               <motion.div
@@ -240,8 +288,14 @@ export default function Home() {
         </div>
       </section>
 
+      <SkillsShowcase
+        techIcons={techLogos}
+        coreCompetencies={coreCompetencies}
+        expertiseAreas={techSkills}
+      />
+
       {/* Experience Section */}
-      <section id="experience" className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-900/30">
+      <section id="experience" className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: 50 }}
@@ -265,49 +319,6 @@ export default function Home() {
               ))}
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Skills Section */}
-      <section id="skills" className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <motion.h2
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-bold text-center mb-12 text-gradient"
-          >
-            Skills
-          </motion.h2>
-
-          {/* Core Competencies */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-12"
-          >
-            <h3 className="text-2xl font-semibold text-neon-blue mb-6">Core Competencies</h3>
-            <div className="flex flex-wrap gap-4">
-              {coreCompetencies.map((skill, index) => (
-                <SkillBadge key={skill} skill={skill} index={index} />
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Areas of Expertise */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h3 className="text-2xl font-semibold text-neon-blue mb-6">Areas of Expertise</h3>
-            <div className="flex flex-wrap gap-4">
-              {techSkills.map((skill, index) => (
-                <SkillBadge key={skill} skill={skill} index={index + coreCompetencies.length} />
-              ))}
-            </div>
-          </motion.div>
         </div>
       </section>
 
@@ -444,13 +455,31 @@ export default function Home() {
               <span>LinkedIn</span>
             </a>
           </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4 }}
+            className="mt-12"
+          >
+            <a
+              href="https://drive.google.com/file/d/13cxnSP7qmJkbnby3SFXEZXb0ai7Qdio8/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 px-8 py-4 text-lg font-semibold border border-neon-cyan text-neon-cyan rounded-full hover:bg-neon-cyan/10 hover:glow transition-all"
+            >
+              Get my latest Resume
+            </a>
+          </motion.div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-8 px-4 text-center text-gray-400 border-t border-neon-cyan/10">
+        <footer className="py-8 px-4 text-center text-gray-400 border-t border-neon-cyan/10">
         <p>&copy; {new Date().getFullYear()} Riyas Siddikk. All rights reserved.</p>
-      </footer>
+        </footer>
+      </div>
     </main>
   )
 }
