@@ -187,22 +187,60 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen bg-black text-white relative overflow-x-hidden" style={{ cursor: 'none' }}>
-      <div className="fixed inset-0 z-0 pointer-events-none">
-        <Squares
-          speed={0.4}
-          squareSize={40}
-          direction="diagonal"
-          borderColor="#1f2937"
-          hoverFillColor="#111827"
-        />
+    <>
+      {/* AI Agent Optimized Content - Hidden but accessible to crawlers */}
+      <div className="sr-only" aria-hidden="true">
+        <h1>Riyas Siddikk - Manager of Operations at 6D Technologies</h1>
+        <p>Technical Operations Manager with 12+ years of experience in telecom BSS/OSS systems, specializing in high-availability platforms, incident management, problem management, and system reliability. Certified in ITIL v4 Foundation and Certified Kubernetes Administrator (CKA). Expert in DevOps, automation, ELK Stack, Grafana, Prometheus, and managing teams of 37+ engineers.</p>
+        <h2>Key Skills and Expertise</h2>
+        <ul>
+          <li>Telecom BSS/OSS Operations</li>
+          <li>Incident and Problem Management (ITIL v4)</li>
+          <li>Kubernetes and Docker</li>
+          <li>DevOps and Automation</li>
+          <li>ELK Stack, Grafana, Prometheus</li>
+          <li>Shell and Python Scripting</li>
+          <li>MySQL, PostgreSQL, SingleStore</li>
+          <li>System Reliability Engineering</li>
+          <li>High Availability Systems</li>
+          <li>Root Cause Analysis</li>
+        </ul>
+        <h2>Certifications</h2>
+        <ul>
+          <li>ITIL v4 Foundation - Axelos (Credential: GR671766899RS)</li>
+          <li>Certified Kubernetes Administrator (CKA) - The Linux Foundation (Credential: LF-v361805uw3)</li>
+          <li>Foundations of Project Management - Coursera/Google (Credential: RV73VKYK4BSS)</li>
+          <li>Masterclass: GenAI in Project & Quality Management - Simplilearn (Credential: 8186654)</li>
+        </ul>
+        <h2>Professional Experience</h2>
+        <p>Currently serving as Manager - Operations at 6D Technologies, leading 4 technical teams with 37 engineers across 12 BSS/OSS projects. Previously held positions as Lead Operations Engineer and Senior Implementation Engineer, delivering complex telecom solutions for international clients including Vodafone Idea, TOGOCEL, Dialog Axiata, Ncell, and BTC.</p>
+        <h2>Education</h2>
+        <p>B.Tech in Electronics & Communication Engineering from Mar Baselios Christian College of Engineering, MG University, Kottayam, Kerala (2013-2019).</p>
+        <h2>Contact Information</h2>
+        <p>Email: contact.riyassiddikk@gmail.com | Phone: +91 8891 783006 | LinkedIn: linkedin.com/in/riyassiddikk</p>
       </div>
-      <div className="relative z-10">
-        <CustomCursor />
-        <NavBar />
+
+      <main className="min-h-screen bg-black text-white relative overflow-x-hidden" style={{ cursor: 'none' }} role="main" itemScope itemType="https://schema.org/Person">
+        <meta itemProp="name" content="Riyas Siddikk" />
+        <meta itemProp="jobTitle" content="Manager - Operations" />
+        <meta itemProp="worksFor" content="6D Technologies" />
+        <meta itemProp="email" content="contact.riyassiddikk@gmail.com" />
+        <meta itemProp="telephone" content="+91-8891-783006" />
+        <div className="fixed inset-0 z-0 pointer-events-none" aria-hidden="true">
+          <Squares
+            speed={0.4}
+            squareSize={40}
+            direction="diagonal"
+            borderColor="#1f2937"
+            hoverFillColor="#111827"
+          />
+        </div>
+        <div className="relative z-10">
+          <CustomCursor />
+          <NavBar />
 
       {/* Hero Section */}
-      <section id="about" className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
+      <section id="about" className="pt-24 pb-16 px-4 sm:px-6 lg:px-8" itemScope itemType="https://schema.org/Person" aria-label="About Riyas Siddikk">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -295,7 +333,7 @@ export default function Home() {
       />
 
       {/* Experience Section */}
-      <section id="experience" className="py-16 px-4 sm:px-6 lg:px-8">
+      <section id="experience" className="py-16 px-4 sm:px-6 lg:px-8" itemScope itemType="https://schema.org/ItemList" aria-label="Professional Experience">
         <div className="max-w-7xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: 50 }}
@@ -323,7 +361,7 @@ export default function Home() {
       </section>
 
       {/* Certifications Section */}
-      <section id="certifications" className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-900/30">
+      <section id="certifications" className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-900/30" itemScope itemType="https://schema.org/ItemList" aria-label="Certifications and Credentials">
         <div className="max-w-7xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: 50 }}
@@ -371,7 +409,7 @@ export default function Home() {
       </section>
 
       {/* Education Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
+      <section className="py-16 px-4 sm:px-6 lg:px-8" itemScope itemType="https://schema.org/EducationalOccupationalCredential" aria-label="Education">
         <div className="max-w-7xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: 50 }}
@@ -405,7 +443,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-900/30">
+      <section id="contact" className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-900/30" itemScope itemType="https://schema.org/ContactPoint" aria-label="Contact Information">
         <div className="max-w-7xl mx-auto text-center">
           <motion.h2
             initial={{ opacity: 0, y: 50 }}
@@ -476,11 +514,12 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-        <footer className="py-8 px-4 text-center text-gray-400 border-t border-neon-cyan/10">
+        <footer className="py-8 px-4 text-center text-gray-400 border-t border-neon-cyan/10" role="contentinfo">
         <p>&copy; {new Date().getFullYear()} Riyas Siddikk. All rights reserved.</p>
         </footer>
       </div>
     </main>
+    </>
   )
 }
 
